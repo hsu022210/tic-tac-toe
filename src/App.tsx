@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type nextSquares = (string | null)[];
 type square = string | null;
@@ -114,6 +114,12 @@ export default function Game() {
       </li>
     );
   });
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/comments')
+    .then(res => res.json())
+    .then(res => console.log(res));
+  }, []);
 
   return (
     <div className="game">
