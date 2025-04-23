@@ -121,6 +121,15 @@ export default function Game() {
     .then(res => console.log(res));
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('https://dummyjson.com/comments');
+      const jsonData = await response.json();
+      console.log(jsonData);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="game">
       <div className="game-board">
